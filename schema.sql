@@ -101,13 +101,8 @@ ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 CREATE INDEX animal_id_asc ON visits (animal_id ASC);
 DROP INDEX animal_id_asc;
 
-CREATE INDEX vet_id_asc ON visits (vet_id ASC); /* DOES NOT WORK */
-DROP INDEX vet_id_asc;
-
-CREATE INDEX vet_id_desc ON visits (vet_id DESC);
-DROP INDEX vet_id_desc;
-
-CREATE INDEX vet_id_2 ON visits (vet_id) WHERE (vet_id = 2);
-DROP INDEX vet_id_2;
+CREATE INDEX vet_id_ind ON visits(vet_id);
+DROP INDEX vet_id_ind;
 
 CREATE INDEX owners_email_asc ON owners (email ASC);
+DROP INDEX owners_email_asc;
