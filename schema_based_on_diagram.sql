@@ -12,6 +12,7 @@ CREATE TABLE medical_histories (
   status VARCHAR(50),
   PRIMARY KEY(id)
 );
+CREATE INDEX medical_histories_asc ON medical_histories (id ASC);
 
 CREATE TABLE invoices (
   id INT GENERATED ALWAYS AS IDENTITY,
@@ -21,6 +22,7 @@ CREATE TABLE invoices (
   PRIMARY KEY(id),
   medical_history_id INT NOT NULL REFERENCES medical_histories(id)
 );
+CREATE INDEX invoices_id_asc ON invoices (id ASC);
 
 
 CREATE TABLE treatments (
@@ -29,6 +31,7 @@ CREATE TABLE treatments (
   name VARCHAR(50),
   PRIMARY KEY(id)
 );
+CREATE INDEX treatment_id_asc ON treatments (id ASC);
 
 CREATE TABLE invoice_items (
   id INT GENERATED ALWAYS AS IDENTITY,
@@ -49,3 +52,4 @@ CREATE TABLE medical_histories_treatments (
   FOREIGN KEY (treatment_id) REFERENCES treatments(id),
   PRIMARY KEY(medical_history_id, treatment_id)
 );
+
